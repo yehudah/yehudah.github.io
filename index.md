@@ -1,37 +1,53 @@
-## Welcome to GitHub Pages
+# Elementor Hacks
 
-You can use the [editor on GitHub](https://github.com/yehudah/yehudah.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+* TOC {:toc}
 
-### Markdown
+## Styled error Messages on elementor forms
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+```
+add_action( 'wp_footer', function () {
+   ?>
+    <script>
+        let forms = document.querySelectorAll( '.elementor-form' );
 
-```markdown
-Syntax highlighted code block
+        forms.forEach(function (form) {
 
-# Header 1
-## Header 2
-### Header 3
+            let inputs = form.querySelectorAll('.elementor-field');
+            let submit = form.querySelector('button[type="submit"]');
 
-- Bulleted
-- List
+            inputs.forEach(function(input) {
+                input.addEventListener('invalid', function(e) {
+                    e.preventDefault();
 
-1. Numbered
-2. List
+                    let errorEl = document.createElement('div');
+                    errorEl.classList.add('error');
+                    errorEl.style.color = 'red';
+                    errorEl.innerHTML = this.validationMessage;
 
-**Bold** and _Italic_ and `Code` text
+                    this.parentElement.parentNode.insertBefore(errorEl, this.parentElement.nextSibling);
+                });
+            });
 
-[Link](url) and ![Image](src)
+            submit.addEventListener('click', function (e) {
+                removeErrors(form);
+            });
+
+            function removeErrors(form) {
+                form.querySelectorAll('.error').forEach(function (error) {
+                    error.remove();
+                });
+            }
+        });
+
+    </script>
+    <?php
+});
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Support
+If you have any issues with the code I post here, feel free to contact me at https://postmansmtp.com
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/yehudah/yehudah.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+**Still not familiar with Post SMTP?** 
+Post SMTP is the most powerfull SMTP plugin for WordPress **with more then 100,000 active installs**. 
+check it here: https://wordpress.org/plugins/post-smtp/
