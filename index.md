@@ -5,7 +5,7 @@
 ## Styled error Messages on elementor forms
 
 Just paste the code to your theme `functions.php` or put the `script` tags content on a seperate JS file.
-Preview: [https://prnt.sc/s7mklz](https://prnt.sc/s7mklz).
+**Preview**: [https://prnt.sc/s7mklz](https://prnt.sc/s7mklz).
 
 ```
 add_action( 'wp_footer', function () {
