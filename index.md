@@ -1,12 +1,14 @@
-# Elementor Hacks
+In here I will post some cool hacks that will boost your elementor design and editing experience.
 
 * TOC
 {:toc}
 
+# Elementor Hacks
+
 ## Styled error Messages on elementor forms
 
-Just paste the code to your theme `functions.php` file.
-Preview: https://prnt.sc/s7mklz.
+Just paste the code to your theme `functions.php` or put the `script` tags content on a seperate JS file.
+Preview: [https://prnt.sc/s7mklz](https://prnt.sc/s7mklz).
 
 ```
 add_action( 'wp_footer', function () {
@@ -49,8 +51,8 @@ add_action( 'wp_footer', function () {
 ```
 
 ### Support
-If you have any issues with the code I post here, feel free to contact me at https://postmansmtp.com
+If you have any issues with the code I post here, feel free to contact me at [https://postmansmtp.com](https://postmansmtp.com)
 
 **Still not familiar with Post SMTP?** 
 Post SMTP is the most powerfull SMTP plugin for WordPress **with more then 100,000 active installs**. 
-check it here: https://wordpress.org/plugins/post-smtp/
+check it here: [https://wordpress.org/plugins/post-smtp/](https://wordpress.org/plugins/post-smtp/)
