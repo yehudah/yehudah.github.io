@@ -3,8 +3,6 @@ In here I will post some cool hacks that will boost your elementor design and ed
 * TOC
 {:toc}
 
-# Elementor Hacks
-
 ## Styled error Messages on elementor forms
 
 Just paste the code to your theme `functions.php` or put the `script` tags content on a seperate JS file.
