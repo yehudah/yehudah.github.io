@@ -1,4 +1,3 @@
-In here I will post some cool hacks that will boost your elementor design and editing experience.
 
 * TOC
 {:toc}
